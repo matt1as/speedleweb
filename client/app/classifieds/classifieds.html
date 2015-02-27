@@ -1,0 +1,30 @@
+<div class="container">
+  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+
+ <form class="navbar-form visible-xs" role="search">
+    <div class="input-group"><input class="form-control ng-pristine ng-valid ng-touched" placeholder="Search" name="srch-term" id="srch-term" ng-model="classified.search">
+      <div class="input-group-btn">
+        <button class="btn btn-default" type="submit" ng-click="search(classified)"><i class="glyphicon glyphicon-search"></i></button>
+      </div>
+    </div>
+       
+    </form><!-- end navbar-form -->
+      <div class="card art" ng-repeat="classified in classifieds">
+         <a ui-sref="details({ id: classified._id })" class="thumb">
+            <img src="{{classified.thumbnails[0]}}" alt="{{classified.name}}" title="{{classified.name}}" />
+            <span class="overlay"><span class="fa fa-search"></span></span>
+          </a>
+        <div class="card-body">
+          <h2><a ui-sref="details({id: classified._id})">{{classified.name}}</a></h2>
+          <p>{{classified.description}}</p>
+        </div>
+        <div class="card-footer">
+          <p>{{classified.price | currency : classified.currency}}</p>
+          <ul class="list-inline filters">
+            <li ng-repeat="tag in classified.tags">{{tag}}</li>
+          </ul>
+          
+        </div><!-- end card-footer -->
+      </div>
+ 
+</div>

@@ -1,0 +1,50 @@
+<div class="navbar" ng-controller="NavbarCtrl">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#rebound-navbar-collapse"><span class="fa fa-bars"></span> Menu</button>
+    <a href="index.html" class="navbar-brand">Speedle</a>
+    <p class="brand-text">Your local market.</p>
+  </div><!-- end navbar-header -->
+
+  <div class="collapse navbar-collapse" id="rebound-navbar-collapse">
+    
+    <form class="navbar-form hidden-xs" role="search" >
+      <div class="input-group"><input class="form-control ng-pristine ng-valid ng-touched" placeholder="Search" name="srch-term" id="srch-term" ng-model="classified.search">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit" ng-click="search(classified)"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+      </div>
+	  <div class="input-group">
+	<p>
+      <ul class="nav navbar-nav">
+	      <li class="title">Categories</li>
+		  
+        <li ng-repeat="category in categories" ng-click="toggleSelection(category)" style="cursor:pointer">
+			<span ng-hide="category.selected">{{category.name}}</span>
+			<strong ng-show="category.selected">{{category.name}}</strong>
+		</li>
+      </ul>
+  </p>
+  	</div>
+    </form><!-- end navbar-form -->
+
+  
+    <!--ul class="nav navbar-nav">
+      <li class="title">Menu</li>
+      <li ng-hide="isLoggedIn()"><a href="/classifieds/myItems">My Items</a></li>
+      <li ng-hide="isLoggedIn()"><a href="classifieds/favourites">Favourites</a></li>
+    </ul-->
+    <ul ng-show="isAdmin()" class="nav navbar-nav">
+      <li class="title">Admin</li>
+      <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li>
+    </ul>
+      
+    <ul class="nav navbar-nav" ng-show="isLoggedIn()">
+      <li class="title">User</li>
+      <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
+      <li ng-show="isLoggedIn()">{{ getCurrentUser().name }}</li>
+      <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings"></a></li>
+      <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></i>
+    </ul>
+  </div>
+</div>
+

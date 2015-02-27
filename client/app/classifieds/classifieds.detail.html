@@ -1,0 +1,33 @@
+        <div class="col-md-9 content blog post">
+          <view-title>{{classified.name}}</view-title>
+          <meta view-head property="og:title" content="{{classified.name}}">
+          <meta view-head property="og:description" content="{{classified.description}}">
+          <meta view-head property="og:image" content="{{classified.images[0]}}">
+          <meta view-head property="og:type" content="website" /> 
+		  <meta view-head property="twitter:card" content="app">
+		  <meta view-head property="twitter:site" content="@Speedle">
+		  <meta view-head property="twitter:description" content="Speedle is your local market, buy and sell things in your neighbourhood for free.">
+		  <meta view-head property="twitter:app:name:googleplay" content="Speedle Beta">
+		  <meta view-head property="twitter:app:id:googleplay" content="se.speedle.android">
+		  <meta view-head property="twitter:app:url:googleplay" content="http://www.speedle.se/classified/{{classified._id}}">
+		  
+          <div class="page">
+          <article>
+            <div class="page-header">
+
+             <img src="{{classified.images[0]}}" alt="" title="{{classified.name}}" />
+              <h1>{{classified.name}}</h1>
+              </div><!-- end page-header -->
+              <ul class="list-inline post-meta">
+                <li><span class="fa fa-price"></span> Price: {{classified.price | currency : classified.currency}}</li>
+                <li><span class="fa fa-user"></span> Seller: {{classified.owner.name}}</li>
+                <li><span class="fa fa-phone"></span> Phone: {{classified.phoneNumber}}</li>
+                <li><span class="fa fa-email"></span> Email: {{classified.email}}</li>
+                <li><span class="fa fa-list-ul"></span>Tags: <a href="#none" ng-repeat="tag in classified.tags">{{tag}}</a></li>
+              </ul><!-- end post-meta -->
+              <div class="post-content">
+                {{classified.description}}
+              </div>
+            </article>
+          </div>
+        </div>
