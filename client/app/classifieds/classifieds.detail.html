@@ -4,13 +4,10 @@
           <meta view-head property="og:description" content="{{classified.description}}">
           <meta view-head property="og:image" content="{{classified.images[0]}}">
           <meta view-head property="og:type" content="website" /> 
-		  <meta view-head property="twitter:card" content="app">
-		  <meta view-head property="twitter:site" content="@Speedle">
-		  <meta view-head property="twitter:description" content="Speedle is your local market, buy and sell things in your neighbourhood for free.">
-		  <meta view-head property="twitter:app:name:googleplay" content="Speedle Beta">
-		  <meta view-head property="twitter:app:id:googleplay" content="se.speedle.android">
-		  <meta view-head property="twitter:app:url:googleplay" content="http://www.speedle.se/classified/{{classified._id}}">
-		  
+	      <meta view-head property="al:android:url" content="speedle://classifieds/{{classified.id}}">
+	      <meta view-head property="al:ios:url" content="speedle://applinks/classifieds/{{classified.id}}" />
+		  <meta view-head name="twitter:app:url:googleplay" content="speedle://classified/{{classified._id}}">
+		  <meta view-head name="twitter:app:url:iphone" content="com.bryderi.Speedle://classifieds/{{classified._id}}’">
           <div class="page">
           <article>
             <div class="page-header">
